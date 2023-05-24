@@ -1,0 +1,139 @@
+//                  Operador ternario                //
+
+return <h1>{married ? 'estoy casado' : 'no estoy casado'} // Es un operador ternario, lo mismo que:
+
+//       if(married){
+//           return <h1>estoy casado</h1>
+//       } else {
+//           return <h1>no estoy casado</h1>
+//       }
+
+//                          PROPS                   //
+
+props es un operador terminario que se puede pasar como argumento
+
+const CreatedGoal = ({tittle, name}) => {     const CreatedGoal = (props) => {   
+  console.log(name)                           console.log(props.name)
+  return <p>{tittle}</p>;                     return <p>{props.tittle}</p>;      
+};                                          };
+
+las props se llaman como si fuesen un atributo, y puede tener más de dos
+
+<CreatedGoal tittle='Texto de ejemplo'/>
+
+Tambien podemos configurarle un default de la siguiente manera:
+
+const CreatedGoal = ({tittle, name = "User"}) => {          const CreatedGoal = (props) => {  
+  console.log(name)                                         props.name = "User" 
+  return <p>{tittle}</p>;                                   console.log(props.name)
+};                                                          return <p>{props.tittle}</p>;      
+                                                      };
+
+
+//                          eventHandlers                       //
+
+Los event handlers son acciones que retornan funciones de una u otra forma, por ejemplo
+
+<button onClick={funciionYaCreada}><button> // Al dar click sobre esta función se hará x cosa
+<button onClick={funcion = {() => {         // Al dar click se ejecuratá un console.log('Hola mundo')
+    console.log('Hola mundo')
+  }
+}}><button>
+
+
+<button onChange={funciionYaCreada}><button> //Al ir escribiendo irá funcionando la función
+<button onChange={(event) => {
+  console.log(event.target.value)
+}}>
+<button>
+
+
+Todos los eventos siempre empiezan con on
+
+//                          fetch                                //
+
+fetch se puede utilizar para traer datos de un backend
+
+fetch('URLDELA.API/ID')
+  .then(res ==> res.json())
+  .then(data => console.log(data))  
+  .catch(err => console.log(err))
+
+
+//                        Metodos de array                        //
+
+const datos = {"objeto", "largo", 1, 2, 3}    
+
+
+
+// mapea todo el array y lo puede modificar     ==> .map((dato, key(funciona como un i++ por cada elemento que se agregue)) => {ejecutable...})
+
+const callDatos = datos.map((dato) =>  return console.log(dato))  
+const callDatos = datos.map((dato, index) => return {
+  <div>
+    <h1>key:{index}</h1>   // Es un ejemplo, normalmente la key iria en el div
+    <h1>dato:{dato}</h1>
+  </div>
+})
+
+
+datos.filter((dato) => dato != x)     // filtrar leementos
+datos.find((dato) => dato = x)        // Buscar elentos
+datos.sort((dato) => dato != x)       // ordenar elementos
+
+
+
+//                HOOKS                     //
+https://legacy.reactjs.org/docs/hooks-intro.html
+
+Basic Hooks:
+  useState
+  useEffect
+  useContext
+
+
+  import { useState } from "react";
+
+  const [ state, setState] = useState(0)
+
+  <button onClick={ () => {
+      setState(state+1)  <--- configurar/actualizar el valor
+    }
+  }>
+    sumar
+  </button>
+
+
+
+  const [ sendedState, settingState] = useState(inicialValue(Puede ser 0 o un array u objeto vacio))
+
+
+const {useEffect} from "react"                  // Funciona como el use de express ( se ejecuta siempre que pase algo )
+
+useEffect(() => {
+  console.log("Esto se ejecuta siempre que pase algo ")
+})
+
+useEffect(() => {
+  console.log("Esto se ejecuta siempre que pase algo ")
+}, [esto es el algo])
+
+useEffect(() => {
+  console.log("Esto se ejecuta siempre que pase algo ")
+}, [])   <---- Asi se ejecuta solo una vez
+
+
+
+
+
+Para utilizar alguna variable y actualizarla en otra etiqueta, lo que debería hacer es crearla en el elemento raiz que la necesito, y depsués mandarsela a la etiqueta que necesito con un atributo con el mismo nombre:
+
+<etiquetaDeComponente setGoals={setGoals}/>
+
+Y dentro de esta actualizar dicha constante, primero desestructurizando
+
+etiquetaDeComponente =  ( { setGoals } ) => {
+  setGoals = (modificación)
+}
+
+Y ya estará actualziado cuando se necesite en el elemento que se necesita
