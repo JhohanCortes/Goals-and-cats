@@ -14,6 +14,16 @@
   padding: 0 20px;
 }
 
+.searchbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.searchbar-right {
+  display: flex;
+  align-items: center;
+}
+
 #searchbar-text {
   font-size: 26px;
   margin-right: 10px;
@@ -28,4 +38,10 @@
 #cero-goals {
   font-size: 20px;
   color: rgb(255, 255, 255);
+}
+
+#github-icon {
+  border: 1px solid red;
+  height: 35px;
+  width: 35px;
 }
