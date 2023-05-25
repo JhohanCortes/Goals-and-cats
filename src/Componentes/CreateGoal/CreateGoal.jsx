@@ -42,7 +42,7 @@ const CreateGoal = ({ setGoals }) => {
       <div className="form">
         <label className="label">Activity</label>
         <br />
-        <input type="text" name="activityName" placeholder="Activity" />
+        <input type="text" name="activityName" placeholder="Activity" autoFocus/>
         <br />
         <label className="label">Difficulty</label>
         <br />
