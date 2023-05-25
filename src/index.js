@@ -3,12 +3,18 @@ import ReactDOM from "react-dom";
 import Goals from "./Goals/Goals";
 import SearchBar from "./Componentes/SearchBar/SearchBar";
 import "./index.css";
+
+import { useState } from "react";
+
 function App() {
+
+  const [total, totalGoals] = useState(0)
+
   return (
-    <index>
-      <SearchBar />
-      <Goals />
-    </index>
+    <div>
+      <SearchBar total={total}/>
+      <Goals totalGoals={totalGoals}/>
+    </div>
   );
 }
 

@@ -4,7 +4,7 @@ import CreatedGoal from "../Componentes/CreatedGoal/CreatedGoal";
 
 import "./Goals.css";
 
-const Goals = () => {
+const Goals = ({totalGoals}) => {
   const [goals, setGoals] = useState([]);
 
   const onClose = (id) => {
@@ -15,7 +15,7 @@ const Goals = () => {
   return (
     <div className="goals">
       <CreateGoal setGoals={setGoals} className="cGoals" />
-      <CreatedGoal goals={goals} onClose={onClose} />
+      <CreatedGoal goals={goals} onClose={onClose} totalGoals={totalGoals}/>
     </div>
   );
 };
