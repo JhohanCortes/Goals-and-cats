@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Goals from "./Goals/Goals";
 import SearchBar from "./Componentes/SearchBar/SearchBar";
-import "./index.css"
+import "./index.css";
 function App() {
   return (
     <index>

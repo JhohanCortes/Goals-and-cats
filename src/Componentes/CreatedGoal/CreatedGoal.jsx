@@ -1,19 +1,22 @@
 import "./CreatedGoal.css";
+import GoalsCards from "../GoalsCards/GoalsCards";
 
-const CreatedGoal = ( {activityName, difficulty, priority, time, catImage} ) => {
-    return (
-        <div className="createds">
-            <div className="writes">
-                <h2>Activity:{activityName}</h2>
-                <h2>Difficulty:{difficulty}</h2>
-                <h2>Priority:{priority}</h2>
-                <h2>Time:{time}</h2>
-                <img src={catImage} alt="Gato motivacional"></img>
-            </div>
-            
-        </div>
-        
-    )
-}
+const CreatedGoal = ({ goals, onClose }) => {
+  return goals.map(
+    ({ activityName, difficulty, priority, catImage, time, id }) => {
+      return (
+        <GoalsCards
+          id={id}
+          activityName={activityName}
+          difficulty={difficulty}
+          priority={priority}
+          time={time}
+          catImage={catImage}
+          onClose={onClose}
+        />
+      );
+    }
+  );
+};
 
 export default CreatedGoal;

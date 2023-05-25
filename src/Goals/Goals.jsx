@@ -7,20 +7,15 @@ import "./Goals.css";
 const Goals = () => {
   const [goals, setGoals] = useState([]);
 
+  const onClose = (id) => {
+    const goalsFiltered = goals.filter((goal) => goal.id !== id);
+    setGoals(goalsFiltered);
+  };
+
   return (
     <div className="goals">
       <CreateGoal setGoals={setGoals} className="cGoals" />
-      {goals.map(({ activityName, difficulty, priority, catImage, time }) => {
-        return (
-          <CreatedGoal
-            activityName={activityName}
-            difficulty={difficulty}
-            priority={priority}
-            time={time}
-            catImage={catImage}
-          />
-        );
-      })}
+      <CreatedGoal goals={goals} onClose={onClose} />
     </div>
   );
 };
